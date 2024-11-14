@@ -1,10 +1,10 @@
-import {navigate} from 'react-router-dom'
+import {Navigate} from 'react-router-dom'
 import {jwtDecode} from 'jwt-decode'
 import api from '../api'
 import { REFRESH_TOKEN, ACCESS_TOKEN } from '../constants'
 import { useState, useEffect } from 'react'
 
-function ProtectRoute({children}) {
+function ProtectedRoute({children}) {
     const [isAuthorized, setIsAuthorized] = useState(null)
 
     useEffect(() => {
@@ -53,4 +53,4 @@ function ProtectRoute({children}) {
     return isAuthorized ? children : <navigate to='/login' />
 }
 
-export default ProtectRoute
+export default ProtectedRoute
